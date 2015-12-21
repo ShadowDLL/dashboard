@@ -9,6 +9,7 @@ class MY_Model extends CI_Model{
 	public $relations;	//Relacionamentos da tabela
 	public $specials;	//Campos com tratamento especial
 	public $order;		//Order By da Query all()
+	public $hasMany;	//Tabelas secundárias
 	
 	/**
 	 * Construção do model padrão
@@ -300,16 +301,44 @@ class MY_Model extends CI_Model{
 				}
 			}
 			
-			$this->db->where('id', $id);
-			
 			if($this->Parameter->_get('physical_exclusion') == 'true'){
-				return $this->db->delete($this->tablename);
+				return $this->db->delete($this->tablename, array('id' => $id));
 			} else {
-				return $this->db->update($this->tablename, $data);
+				return $this->db->update($this->tablename, $data, array('id' => $id));
 			}
 		} catch (Exception $e){
 			return $e->getMessage();
 		}
+	}
+	
+	/**
+	 * Método de inserção de imagens e anexos
+	 *
+	 * @author Fábio Rodriguez <brajola@gmail.com>
+	 * @param $data array
+	 */
+	public function insert_attachment()
+	{
+		try {
+			foreach($_FILES as $k => $v){
+				$filename = getRandomHash() . '.' . getFileExtension($v['name']);
+				
+				if(!move_uploaded_file($v['tmp_name'], UPLOADPATH.'/'.$filename)){
+					throw new Exception("Error uploading file: ".$v['name']);
+				}
+				
+				$_POST[$k] = $filename;
+			}
+			
+			return true;
+		} catch (Exception $e){
+			return $e->getMessage();
+		}
+	}
+	
+	public function getAttachment($id)
+	{
+		return $this->db->get_where($this->tablename, array('id' => $id))->result()[0]->attachment;
 	}
 }
 

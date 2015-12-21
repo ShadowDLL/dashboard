@@ -1,4 +1,4 @@
-<div class="modal fade" tabindex="-1" role="dialog">
+<div class="modal fade" tabindex="-1" role="dialog" id="modalDeleteRecord">
 	<div class="modal-dialog">
 		<div class="modal-content">
 			<div class="modal-header">
@@ -12,7 +12,7 @@
 	
 			<div class="modal-footer">
 				<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
-				<button type="button" class="btn btn-danger btnnDelete">Confirm Delete</button>
+				<button type="button" class="btn btn-danger btnConfirmDelete">Confirm Delete</button>
 			</div>
 		</div>
 	</div>

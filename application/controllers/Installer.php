@@ -61,4 +61,27 @@ class Installer extends MY_Controller
 		
 		$this->render();
 	}
+	
+	public function list_modules()
+	{
+		$git = "https://api.github.com/users/brajola/repos";
+		
+		$ch = curl_init();
+		curl_setopt($ch, CURLOPT_URL,$git);
+		curl_setopt($ch, CURLOPT_HTTPPROXYTUNNEL, 1);
+		curl_setopt($ch, CURLOPT_PROXY, '10.11.25.2:3128');
+		curl_setopt($ch,CURLOPT_USERAGENT,'Mozilla/5.0 (Windows; U; Windows NT 5.1; en-US; rv:1.8.1.13) Gecko/20080311 Firefox/2.0.0.13');
+		curl_setopt($ch, CURLOPT_FOLLOWLOCATION, 1);
+		curl_setopt($ch, CURLOPT_RETURNTRANSFER, 1);
+		curl_setopt($ch, CURLOPT_CUSTOMREQUEST,'GET');
+		curl_setopt ($ch, CURLOPT_HEADER, 1);
+		$content = curl_exec($ch);
+		curl_close($ch);
+
+		//$content = substr($content, strpos($content, '['), strlen($content));
+		
+		print($content);
+		
+		die();
+	}
 }

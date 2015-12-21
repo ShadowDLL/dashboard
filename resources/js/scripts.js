@@ -49,11 +49,29 @@ $(function(){
 	
 	$(".actionButton").click(function(){
 		var url = $(this).attr('rel');
+		
+		if($(this).hasClass("btnExport") || $(this).hasClass("btnPrint")){
+			window.open(url);
+			return false;
+		}
+		
 		window.location = url;
 	});
 	
 	$(".btnSave").click(function(){
 		$("form").submit();
+	});
+	
+	$(document).on('click', '.btnConfirmDelete', function(){
+		var url = $("#url").val() + '/delete/' + $("#id").val();
+		
+		$.ajax({
+			url: url,
+			type: "POST",
+			success: function(returns){
+				window.location = $("#url").val();
+			}
+		});
 	});
 	
 	$('#tabs a:first').tab('show');

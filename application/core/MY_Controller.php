@@ -117,10 +117,8 @@ class MY_Controller extends MX_Controller {
 		if($_POST){
 			unset($_POST['id']);
 			
-			foreach($_POST as $k => $v){
-				if(empty($v)){
-					unset($_POST[$k]);
-				}
+			if($_FILES){
+				$this->Model->insert_attachment();
 			}
 			
 			$this->Model->insert($_POST);
@@ -136,12 +134,17 @@ class MY_Controller extends MX_Controller {
 		$this->methodAllowed();
 		
 		if($_POST){
+			if($_FILES){
+				$this->Model->insert_attachment();
+			}
+			
 			$this->Model->update($_POST['id'], $_POST);
 			
 			redirect($this->router->class);
 		}
 		
-		$this->data['row'] = $this->Model->get($id);
+		$this->data['id']	= $id;
+		$this->data['row']	= $this->Model->get($id);
 		$this->render();
 	}
 	
@@ -149,7 +152,9 @@ class MY_Controller extends MX_Controller {
 	{
 		$this->methodAllowed();
 		
-		$this->Model->delete($id);
+		unlink(UPLOADPATH.'/'.$this->Model->getAttachment($id));
+		
+		return $this->Model->delete($id);
 	}
 	
 	public function search()
@@ -162,6 +167,8 @@ class MY_Controller extends MX_Controller {
 	public function export()
 	{
 		$this->methodAllowed();
+		
+		$this->data['rows'] = $this->Model->all();
 		
 		$this->render();
 	}

@@ -115,6 +115,10 @@ function getControlType($data){
 		
 		case 'var':
 			$field_type = 'text';
+			
+			if($data['name'] == 'attachment'){
+				$field_type = 'file';
+			}
 			break;
 		
 		case 'tim':
@@ -141,6 +145,7 @@ function parseFieldName($fieldName){
 	return ucwords($fieldName);
 }
 
+//Botões de ações do sistema
 function getButtons($buttons, $disabled=array()){
 	$ci		=& get_instance();
 	$html	= '';
@@ -149,7 +154,7 @@ function getButtons($buttons, $disabled=array()){
 	$templates = [
 		'add'		=> '<button type="button" class="btn btn-sm btn-default actionButton btnAdd" rel="'.site_url($class.'/insert').'">Add New</button>',
 		'save'		=> '<button type="submit" class="btn btn-sm btn-default actionButton btnSave" rel="'.site_url($class).'">Save</button>',
-		'delete'	=> '<button type="button" class="btn btn-sm btn-default actionButton btnDelete" rel="'.site_url($class).'">Delete</button>',
+		'delete'	=> '<button type="button" class="btn btn-sm btn-default btnDelete" rel="'.site_url($class).'" data-toggle="modal" data-target="#modalDeleteRecord">Delete</button>',
 		'back'		=> '<button type="button" class="btn btn-sm btn-default actionButton btnBack" rel="'.site_url($class).'">Back</button>',
 		'cancel'	=> '<button type="button" class="btn btn-sm btn-default actionButton btnCancel" rel="'.site_url($class).'">Cancel</button>',
 		'export'	=> '<button type="button" class="btn btn-sm btn-default actionButton btnExport" rel="'.site_url($class.'/export').'">Export</button>',
@@ -169,6 +174,7 @@ function getButtons($buttons, $disabled=array()){
 	return $html;
 }
 
+//Remove um diretório
 function delete_directory($dir){
 	if(is_dir($dir)){
 		$objects = scandir($dir);
@@ -186,4 +192,15 @@ function delete_directory($dir){
 		reset($objects);
 		rmdir($dir);
 	}
+}
+
+//Retorna uma string randomica
+function getRandomHash(){
+	return bin2hex(mcrypt_create_iv(22, MCRYPT_DEV_URANDOM));
+}
+
+//Retorna a extensão de um arquivo
+function getFileExtension($filename){
+	$tmp = explode('.', $filename);
+	return $tmp[count($tmp)-1];
 }
