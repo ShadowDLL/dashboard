@@ -27,9 +27,9 @@
 							<?php foreach($this->Model->fields as $field): ?>
 								<?php if(!in_array($field->Field, $this->Model->exclude)){ ?>
 									<?php if(strlen($row->{$field->Field}) < 50){ ?>
-										<td nowrap style="border-bottom:1px solid gray;"><?=$row->{$field->Field}?></td>
+										<td nowrap><?=$row->{$field->Field}?></td>
 									<?php } else { ?>
-										<td nowrap style="border-bottom:1px solid gray;"><?=$row->{$field->Field}?></td>
+										<td><?=$row->{$field->Field}?></td>
 									<?php } ?>
 								<?php } ?>
 							<?php endforeach; ?>
