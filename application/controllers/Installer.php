@@ -12,7 +12,17 @@ class Installer extends MY_Controller
 	public function index($page=0)
 	{
 		if($_POST){
-			file_put_contents(MODULEPATH."/module.zip", fopen($_POST['url'], 'r'));
+			if($this->Parameter->_get('network_proxy') !== ''){
+				$context = stream_context_create(array(
+					'http' => array(
+						'proxy' => 'tcp://'.$this->Parameter->_get('network_proxy')
+					),
+				));
+				
+				file_put_contents(MODULEPATH."/module.zip", fopen($_POST['url'], 'r', false, $context));
+			} else {
+				file_put_contents(MODULEPATH."/module.zip", fopen($_POST['url'], 'r'));
+			}
 
 			$zip = new ZipArchive;
 			
