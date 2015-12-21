@@ -64,6 +64,17 @@
 									</a>
 								</li>
 							<?php } ?>
+							
+							<?php if($this->Permission->hasPermission('themes', 'index')){ ?>
+								<li>
+									<a href="<?=site_url()?>themes">
+										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+										<span class="menu-spacer">System Themes</span>
+									</a>
+								</li>
+							<?php } ?>
+						
+							<li role="separator" class="divider"></li>
 						
 							<?php if($this->Permission->hasPermission('permissions', 'index')){ ?>
 								<li>
@@ -73,8 +84,6 @@
 									</a>
 								</li>
 							<?php } ?>
-						
-							<li role="separator" class="divider"></li>
 							
 							<?php if($this->Permission->hasPermission('installer', 'index')){ ?>
 								<li>

@@ -9,7 +9,7 @@
 
 		<!-- Bootstrap -->
 		<link href="<?=base_url()?>resources/css/bootstrap.min.css" rel="stylesheet">
-		<link href="<?=base_url()?>resources/css/theme.min.css" rel="stylesheet">
+		<link href="<?=base_url()?>resources/themes/<?=$this->Parameter->_get('system_theme')?>/theme.min.css" rel="stylesheet">
 		<link href="<?=base_url()?>resources/css/bootstrap-datepicker.min.css" rel="stylesheet">
 		
 		<link href="<?=base_url()?>resources/css/styles.css" rel="stylesheet">
