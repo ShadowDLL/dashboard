@@ -40,15 +40,7 @@ td{
 .pagination *{
 	padding:5px;
 	color:white;
-	font-size:11px;
-	border: 1px solid #2b3e50;
-	background-color:#2b3e50;
 	margin-right:1px;
-}
-
-.pagination *:hover{
-	color:white;
-	background-color:#bf5a16;
 }
 
 .btnAddPermission{

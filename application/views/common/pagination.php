@@ -1,1 +1,1 @@
-<div class="pagination"><?=$this->pagination->create_links();?></div>
+<nav><?=$this->pagination->create_links();?></nav>

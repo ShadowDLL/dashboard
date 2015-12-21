@@ -79,6 +79,10 @@ class Auth_model extends MY_Model {
 			return true;
 		}
 		
+		if($this->session->userdata('USER_GROUP') == '1'){
+			return true;
+		}
+		
 		$methods = array(
 			'index'		=> 'p_index',
 			'insert'	=> 'p_insert',

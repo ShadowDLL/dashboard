@@ -35,88 +35,90 @@
 						<?php endforeach; ?>
 					<?php endif; ?>
 				
-					<li class="dropdown">
-						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">System Settings <span class="caret"></span></a>
-						<ul class="dropdown-menu">
-							<?php if($this->Permission->hasPermission('users', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>users">
-										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-										<span class="menu-spacer">Users</span>
-									</a>
-								</li>
-							<?php } ?>
+					<?php if($this->session->userdata('USER_GROUP') == '1'): ?>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">System Settings <span class="caret"></span></a>
+							<ul class="dropdown-menu">
+								<?php if($this->Permission->hasPermission('users', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>users">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="menu-spacer">Users</span>
+										</a>
+									</li>
+								<?php } ?>
 						
-							<?php if($this->Permission->hasPermission('groups', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>groups">
-										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-										<span class="menu-spacer">User Groups</span>
-									</a>
-								</li>
-							<?php } ?>
+								<?php if($this->Permission->hasPermission('groups', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>groups">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="menu-spacer">User Groups</span>
+										</a>
+									</li>
+								<?php } ?>
 						
-							<?php if($this->Permission->hasPermission('menu', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>menu">
-										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-										<span class="menu-spacer">System Menu</span>
-									</a>
-								</li>
-							<?php } ?>
+								<?php if($this->Permission->hasPermission('menu', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>menu">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="menu-spacer">System Menu</span>
+										</a>
+									</li>
+								<?php } ?>
 							
-							<?php if($this->Permission->hasPermission('themes', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>themes">
-										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-										<span class="menu-spacer">System Themes</span>
-									</a>
-								</li>
-							<?php } ?>
+								<?php if($this->Permission->hasPermission('themes', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>themes">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="menu-spacer">System Themes</span>
+										</a>
+									</li>
+								<?php } ?>
 						
-							<li role="separator" class="divider"></li>
+								<li role="separator" class="divider"></li>
 						
-							<?php if($this->Permission->hasPermission('permissions', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>permissions">
-										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-										<span class="menu-spacer">Modules & Permissions</span>
-									</a>
-								</li>
-							<?php } ?>
+								<?php if($this->Permission->hasPermission('permissions', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>permissions">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="menu-spacer">Modules & Permissions</span>
+										</a>
+									</li>
+								<?php } ?>
 							
-							<?php if($this->Permission->hasPermission('installer', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>installer">
-										<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-										<span class="menu-spacer">Module Installer</span>
-									</a>
-								</li>
-							<?php } ?>
+								<?php if($this->Permission->hasPermission('installer', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>installer">
+											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="menu-spacer">Module Installer</span>
+										</a>
+									</li>
+								<?php } ?>
 						
-							<li role="separator" class="divider"></li>
+								<li role="separator" class="divider"></li>
 						
-							<?php if($this->Permission->hasPermission('parameters', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>parameters">
-										<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-										<span class="menu-spacer">System Parameters</span>
-									</a>
-								</li>
-							<?php } ?>
+								<?php if($this->Permission->hasPermission('parameters', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>parameters">
+											<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+											<span class="menu-spacer">System Parameters</span>
+										</a>
+									</li>
+								<?php } ?>
 							
-							<li role="separator" class="divider"></li>
+								<li role="separator" class="divider"></li>
 						
-							<?php if($this->Permission->hasPermission('logs', 'index')){ ?>
-								<li>
-									<a href="<?=site_url()?>logs">
-										<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
-										<span class="menu-spacer">System Log</span>
-									</a>
-								</li>
-							<?php } ?>
-						</ul>
-					</li>
+								<?php if($this->Permission->hasPermission('logs', 'index')){ ?>
+									<li>
+										<a href="<?=site_url()?>logs">
+											<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
+											<span class="menu-spacer">System Log</span>
+										</a>
+									</li>
+								<?php } ?>
+							</ul>
+						</li>
+					<?php endif; ?>
 				</ul>
 			
 				<ul class="nav navbar-nav navbar-right">
