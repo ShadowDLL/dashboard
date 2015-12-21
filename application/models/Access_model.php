@@ -23,6 +23,7 @@ class Access_model extends MY_Model{
 		$path		= $this->router->class.'/'.$this->router->method;
 		$exclude	= array(
 			'dashboard/index',
+			'dashboard/getCurrentFeed',
 			'logs/index'
 		);
 		
