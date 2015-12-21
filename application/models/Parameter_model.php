@@ -35,5 +35,15 @@ class Parameter_model extends MY_Model{
 			return $e->getMessage();
 		}
 	}
+	
+	public function setNewTheme($theme)
+	{
+		try {
+			$this->db->where('key', 'system_theme');
+			$this->db->update($this->tablename, array('value' => $theme));
+		} catch (Exception $e){
+			return $e->getMessage();
+		}
+	}
 }
 

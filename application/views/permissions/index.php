@@ -18,7 +18,7 @@
 
 			<div class="tab-content">
 				<?php foreach($this->data['groups'] as $group): ?>
-					<div role="tabpanel" class="tab-pane" id="<?=$group->id?>" style="background-color:#2b3e50;padding:10px;">
+					<div role="tabpanel" class="tab-pane" id="<?=$group->id?>" style="padding:10px;">
 						<table class="table table-bordered table-hover table-condensed table-responsive">
 							<thead>
 								<tr>

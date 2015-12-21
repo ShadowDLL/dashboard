@@ -52,7 +52,7 @@ h2,h3{page-break-after:avoid}
 }
 .img-thumbnail,body{background-color:#2b3e50}
 .btn,.btn-danger.active,.btn-danger:active,.btn-default.active,.btn-default:active,.btn-info.active,.btn-info:active,.btn-primary.active,.btn-primary:active,.btn-warning.active,.btn-warning:active,.btn.active,.btn:active,.dropdown-menu>.disabled>a:focus,.dropdown-menu>.disabled>a:hover,.form-control,.navbar-toggle,.open>.dropdown-toggle.btn-danger,.open>.dropdown-toggle.btn-default,.open>.dropdown-toggle.btn-info,.open>.dropdown-toggle.btn-primary,.open>.dropdown-toggle.btn-warning{background-image:none}
-@font-face{font-family:'Glyphicons Halflings';src:url(http://bootstrap-live-customizer.com/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot);src:url(http://bootstrap-live-customizer.com/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(http://bootstrap-live-customizer.com/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff2) format('woff2'),url(http://bootstrap-live-customizer.com/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.woff) format('woff'),url(http://bootstrap-live-customizer.com/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(http://bootstrap-live-customizer.com/bootstrap-3.3.5/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}
+@font-face{font-family:'Glyphicons Halflings';src:url(../fonts/glyphicons-halflings-regular.eot);src:url(../fonts/glyphicons-halflings-regular.eot?#iefix) format('embedded-opentype'),url(../fonts/glyphicons-halflings-regular.woff2) format('woff2'),url(../fonts/glyphicons-halflings-regular.woff) format('woff'),url(../fonts/glyphicons-halflings-regular.ttf) format('truetype'),url(../fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular) format('svg')}
 .glyphicon{position:relative;top:1px;display:inline-block;font-family:'Glyphicons Halflings';font-style:normal;font-weight:400;line-height:1;-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale}
 .glyphicon-asterisk:before{content:"\2a"}
 .glyphicon-plus:before{content:"\2b"}
@@ -666,7 +666,7 @@ input[type=range]{display:block;width:100%}
 select[multiple],select[size]{height:auto}
 input[type=file]:focus,input[type=checkbox]:focus,input[type=radio]:focus{outline:dotted thin;outline:-webkit-focus-ring-color auto 5px;outline-offset:-2px}
 output{padding-top:9px}
-.form-control{width:100%;height:39px;padding:8px 16px;background-color:#fff;border:1px solid transparent;border-radius:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}
+.form-control{color:#fff;width:100%;height:39px;padding:8px 16px;background-color:#2b3e50;border:1px solid transparent;border-radius:0;box-shadow:inset 0 1px 1px rgba(0,0,0,.075);-webkit-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;-o-transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s;transition:border-color ease-in-out .15s,box-shadow ease-in-out .15s}
 .form-control,.has-success .form-control{-webkit-box-shadow:inset 0 1px 1px rgba(0,0,0,.075)}
 .form-control:focus{border-color:transparent;outline:0}
 .form-control::-moz-placeholder{color:#ccc;opacity:1}
@@ -753,8 +753,8 @@ select[multiple].input-lg,textarea.input-lg{height:auto}
 .btn.active,.btn:active{outline:0;-webkit-box-shadow:inset 0 3px 5px rgba(0,0,0,.125);box-shadow:inset 0 3px 5px rgba(0,0,0,.125)}
 .btn.disabled,.btn[disabled],fieldset[disabled] .btn{cursor:not-allowed;opacity:.65;filter:alpha(opacity=65);-webkit-box-shadow:none;box-shadow:none}
 a.btn.disabled,fieldset[disabled] a.btn{pointer-events:none}
-.btn-default{color:#fff;background-color:#4e5d6c;border-color:transparent}
-.btn-default.active,.btn-default.focus,.btn-default:active,.btn-default:focus,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#39444e;border-color:transparent}
+.btn-default{color:#fff;background-color:#4e5d6c;border:1px solid #2b3e50;}
+.btn-default.active,.btn-default.focus,.btn-default:active,.btn-default:focus,.btn-default:hover,.open>.dropdown-toggle.btn-default{color:#fff;background-color:#39444e;border:1px solid #2b3e50;}
 .btn-default.active.focus,.btn-default.active:focus,.btn-default.active:hover,.btn-default:active.focus,.btn-default:active:focus,.btn-default:active:hover,.open>.dropdown-toggle.btn-default.focus,.open>.dropdown-toggle.btn-default:focus,.open>.dropdown-toggle.btn-default:hover{color:#fff;background-color:#2a323a;border-color:transparent}
 .btn-default.disabled,.btn-default.disabled.active,.btn-default.disabled.focus,.btn-default.disabled:active,.btn-default.disabled:focus,.btn-default.disabled:hover,.btn-default[disabled],.btn-default[disabled].active,.btn-default[disabled].focus,.btn-default[disabled]:active,.btn-default[disabled]:focus,.btn-default[disabled]:hover,fieldset[disabled] .btn-default,fieldset[disabled] .btn-default.active,fieldset[disabled] .btn-default.focus,fieldset[disabled] .btn-default:active,fieldset[disabled] .btn-default:focus,fieldset[disabled] .btn-default:hover{background-color:#4e5d6c;border-color:transparent}
 .btn-default .badge{color:#4e5d6c;background-color:#fff}

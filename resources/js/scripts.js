@@ -169,4 +169,19 @@ $(function(){
 			}
 		});
 	});
+	
+	$(document).on('click', '.btnChangeTheme', function(){
+		var url = $("#url").val() + '/changeSystemTheme';
+		
+		$.ajax({
+			url: url,
+			type: "POST",
+			data: {
+				theme: $(this).attr('rel'),
+			},
+			success: function(returns){
+				location.reload();
+			}
+		});
+	});
 });
