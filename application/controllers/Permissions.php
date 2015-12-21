@@ -13,7 +13,10 @@ class Permissions extends MY_Controller
 	{
 		$this->load->model('Group_model', 'Group');
 		
-		$this->data['modules']	= scandir(MODULEPATH);
+		if(is_dir(MODULEPATH)){
+			$this->data['modules'] = scandir(MODULEPATH);
+		}
+		
 		$this->data['groups']	= $this->Group->all();
 		
 		$this->render();

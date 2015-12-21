@@ -12,6 +12,10 @@ class Installer extends MY_Controller
 	public function index($page=0)
 	{
 		if($_POST){
+			if(!is_dir(MODULEPATH)){
+				mkdir(MODULEPATH, 0777);
+			}
+			
 			if($this->Parameter->_get('network_proxy') !== ''){
 				$context = stream_context_create(array(
 					'http' => array(

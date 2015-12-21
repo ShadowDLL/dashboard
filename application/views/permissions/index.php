@@ -39,105 +39,107 @@
 							</thead>
 			
 							<tbody>
-								<?php foreach($this->data['modules'] as $module): ?>
-									<?php if($module !== '.' && $module !== '..'): ?>
-										<?php
-										$p_index	= $this->Model->isPermission($module, $group->id, 'p_index');
-										$p_insert	= $this->Model->isPermission($module, $group->id, 'p_insert');
-										$p_update	= $this->Model->isPermission($module, $group->id, 'p_update');
-										$p_delete	= $this->Model->isPermission($module, $group->id, 'p_delete');
-										$p_export	= $this->Model->isPermission($module, $group->id, 'p_export');
-										$p_print	= $this->Model->isPermission($module, $group->id, 'p_print');
-										$p_search	= $this->Model->isPermission($module, $group->id, 'p_search');
-										?>
+								<?php if(isset($this->data['modules'])): ?>
+									<?php foreach($this->data['modules'] as $module): ?>
+										<?php if($module !== '.' && $module !== '..'): ?>
+											<?php
+											$p_index	= $this->Model->isPermission($module, $group->id, 'p_index');
+											$p_insert	= $this->Model->isPermission($module, $group->id, 'p_insert');
+											$p_update	= $this->Model->isPermission($module, $group->id, 'p_update');
+											$p_delete	= $this->Model->isPermission($module, $group->id, 'p_delete');
+											$p_export	= $this->Model->isPermission($module, $group->id, 'p_export');
+											$p_print	= $this->Model->isPermission($module, $group->id, 'p_print');
+											$p_search	= $this->Model->isPermission($module, $group->id, 'p_search');
+											?>
 											
-										<tr>
-											<td width="200"><?=parseFieldName($module)?></td>
-											<td><?=site_url()?><?=$module?></td>
-											<td>
-												<select name="menu_id[]" class="form-control menu_assignment" rel="<?=$module?>" style="height:auto;padding:0px;">
-													<option value="0" style="padding:0px;">None (Not assigned)</option>
-													<?php foreach($menu = $this->Menu->all() as $m): ?>
-														<?php if($this->Module->exists($m->id, $module)){ ?>
-															<option selected="selected" value="<?=$m->id?>" style="padding:0px;"><?=$m->name?></option>
-														<?php } else { ?>
-															<option value="<?=$m->id?>" style="padding:0px;"><?=$m->name?></option>
-														<?php } ?>
-													<?php endforeach; ?>
-												</select>
-											</td>
+											<tr>
+												<td width="200"><?=parseFieldName($module)?></td>
+												<td><?=site_url()?><?=$module?></td>
+												<td>
+													<select name="menu_id[]" class="form-control menu_assignment" rel="<?=$module?>" style="height:auto;padding:0px;">
+														<option value="0" style="padding:0px;">None (Not assigned)</option>
+														<?php foreach($menu = $this->Menu->all() as $m): ?>
+															<?php if($this->Module->exists($m->id, $module)){ ?>
+																<option selected="selected" value="<?=$m->id?>" style="padding:0px;"><?=$m->name?></option>
+															<?php } else { ?>
+																<option value="<?=$m->id?>" style="padding:0px;"><?=$m->name?></option>
+															<?php } ?>
+														<?php endforeach; ?>
+													</select>
+												</td>
 
-											<td style="width:200px;text-align:center;">
-												<button id="<?=$module?>_<?=$group->id?>_yes" style="font-size:11px !important;" class="btn btn-sm btn-success btnYesToAll" rel="<?=$module?>|<?=$group->id?>" data-toggle="modal" data-target="#modalYesToAll">Yes to All</button>
-												<button id="<?=$module?>_<?=$group->id?>_no" style="font-size:11px !important;" class="btn btn-sm btn-danger btnNoToAll" rel="<?=$module?>|<?=$group->id?>" data-toggle="modal" data-target="#modalNoToAll">No to All</button>
-											</td>
+												<td style="width:200px;text-align:center;">
+													<button id="<?=$module?>_<?=$group->id?>_yes" style="font-size:11px !important;" class="btn btn-sm btn-success btnYesToAll" rel="<?=$module?>|<?=$group->id?>" data-toggle="modal" data-target="#modalYesToAll">Yes to All</button>
+													<button id="<?=$module?>_<?=$group->id?>_no" style="font-size:11px !important;" class="btn btn-sm btn-danger btnNoToAll" rel="<?=$module?>|<?=$group->id?>" data-toggle="modal" data-target="#modalNoToAll">No to All</button>
+												</td>
 
-											<!-- Index -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_index){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_index_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_index">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_index_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_index">No</button>
-												<?php } ?>
-											</td>
+												<!-- Index -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_index){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_index_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_index">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_index_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_index">No</button>
+													<?php } ?>
+												</td>
 												
-											<!-- Insert -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_insert){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_insert_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_insert">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_insert_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_insert">No</button>
-												<?php } ?>
-											</td>
+												<!-- Insert -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_insert){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_insert_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_insert">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_insert_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_insert">No</button>
+													<?php } ?>
+												</td>
 												
-											<!-- Update -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_update){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_update_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_update">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_update_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_update">No</button>
-												<?php } ?>
-											</td>
+												<!-- Update -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_update){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_update_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_update">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_update_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_update">No</button>
+													<?php } ?>
+												</td>
 												
-											<!-- Delete -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_delete){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_delete_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_delete">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_delete_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_delete">No</button>
-												<?php } ?>
-											</td>
+												<!-- Delete -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_delete){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_delete_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_delete">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_delete_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_delete">No</button>
+													<?php } ?>
+												</td>
 												
-											<!-- Export -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_export){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_export_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_export">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_export_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_export">No</button>
-												<?php } ?>
-											</td>
+												<!-- Export -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_export){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_export_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_export">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_export_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_export">No</button>
+													<?php } ?>
+												</td>
 												
-											<!-- Print -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_print){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_print_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_print">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_print_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_print">No</button>
-												<?php } ?>
-											</td>
+												<!-- Print -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_print){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_print_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_print">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_print_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_print">No</button>
+													<?php } ?>
+												</td>
 												
-											<!-- Search -->
-											<td style="width:50px;text-align:center;">
-												<?php if($p_search){ ?>
-													<button id="<?=$module?>_<?=$group->id?>_search_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_search">Yes</button>
-												<?php } else { ?>
-													<button id="<?=$module?>_<?=$group->id?>_search_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_search">No</button>
-												<?php } ?>
-											</td>
-										</tr>
-									<?php endif; ?>
-								<?php endforeach; ?>
-							</tbody>
+												<!-- Search -->
+												<td style="width:50px;text-align:center;">
+													<?php if($p_search){ ?>
+														<button id="<?=$module?>_<?=$group->id?>_search_remove" class="btn btn-sm btn-success btnRemovePermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_search">Yes</button>
+													<?php } else { ?>
+														<button id="<?=$module?>_<?=$group->id?>_search_add" class="btn btn-sm btn-danger btnAddPermission <?=$module?>_<?=$group->id?>" rel="<?=$module?>|<?=$group->id?>|p_search">No</button>
+													<?php } ?>
+												</td>
+											</tr>
+										<?php endif; ?>
+									<?php endforeach; ?>
+								</tbody>
+							<?php endif; ?>
 						</table>
 					</div>
 				<?php endforeach; ?>
