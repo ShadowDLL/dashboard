@@ -45,4 +45,4 @@
 	</div>
 </div>
 
-<?=getButtons($this->data['buttons'][$this->router->method]);?>
+<?=getButtons($this->data['buttons'][$this->router->method], @$this->data['disabled']);?>

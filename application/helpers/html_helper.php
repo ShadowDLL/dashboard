@@ -141,7 +141,7 @@ function parseFieldName($fieldName){
 	return ucwords($fieldName);
 }
 
-function getButtons($buttons){
+function getButtons($buttons, $disabled=array()){
 	$ci		=& get_instance();
 	$html	= '';
 	$class	= $ci->router->class;
@@ -157,7 +157,13 @@ function getButtons($buttons){
 	];
 	
 	foreach($buttons as $button){
-		$html .= $templates[$button];
+		if(count($disabled) > 0){
+			if(!in_array($button, $disabled)){
+				$html .= $templates[$button];
+			}
+		} else {
+			$html .= $templates[$button];
+		}
 	}
 	
 	return $html;

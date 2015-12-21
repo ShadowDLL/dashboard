@@ -9,7 +9,7 @@ class Logs extends MY_Controller
 		$this->data['module']		= 'System Log';
 		$this->data['view_path']	= 'default';
 		$this->data['disabled']		= array(
-			'insert','update', 'delete', 'export', 'search', '_print'
+			'add','save', 'delete', 'export', 'search', 'print'
 		);
 		
 		$this->Model->order = 'id DESC';
