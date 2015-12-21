@@ -15,7 +15,7 @@
 					<tr>
 						<?php foreach($this->Model->fields as $field): ?>
 							<?php if(!in_array($field->Field, $this->Model->exclude)){ ?>
-								<th><?=parseFieldName($field->Field)?></th>
+								<th><?=@$this->Model->labels[$field->Field]?></th>
 							<?php } ?>
 						<?php endforeach; ?>
 					</tr>
