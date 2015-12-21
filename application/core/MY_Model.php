@@ -158,7 +158,7 @@ class MY_Model extends CI_Model{
 	
 			if($this->relations){
 				foreach($this->relations as $k => $v){
-					$this->db->join($k, "{$k}.id={$this->tablename}.{$k}_id");
+					$this->db->join($k, "{$k}.id={$this->tablename}.{$k}_id", 'left');
 				}
 			}
 		

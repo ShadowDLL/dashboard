@@ -16,7 +16,7 @@
 		
 		<form class="form-horizontal" method="POST">
 			<div class="form-group">
-				<label for="url" class="col-sm-2 control-label">Git URL</label>
+				<label for="url" class="col-sm-2 control-label">GitHub URL</label>
 				<div class="col-sm-6">
 					<input type="text" class="form-control" id="url" name="url">
 				</div>

@@ -110,12 +110,6 @@ class MY_Controller extends MX_Controller {
 		$this->methodAllowed();
 		
 		if($_POST){
-			foreach($_POST as $k => $v){
-				if(empty($v)){
-					unset($_POST[$k]);
-				}
-			}
-			
 			$this->Model->update($_POST['id'], $_POST);
 			
 			redirect($this->router->class);
