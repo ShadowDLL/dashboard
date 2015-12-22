@@ -9,8 +9,13 @@ class Dashboard extends MY_Controller
 		$this->data['module'] = 'Dashboard';
 	}
 	
-	public function getCurrentFeed()
+	public function getAccessFeed()
 	{
-		print($this->Model->getFeed('2015-12-01', '2015-12-31'));
+		print($this->Model->getAccessFeed(date('Y-m').'-01', date('Y-m').'-31'));
+	}
+	
+	public function getOperationsFeed()
+	{
+		print($this->Model->getOperationsFeed());
 	}
 }
