@@ -2,9 +2,13 @@
 
 class Dashboard_model extends MY_Model{
 	
+	private $DB;
+	
 	function __construct()
 	{
 		parent::__construct();
+		
+		$this->DB = $this->load->database('log', TRUE);
 		
 		$this->tablename = 'access';
 		$this->setFields();
@@ -16,13 +20,13 @@ class Dashboard_model extends MY_Model{
 		try{
 			$accessData = [];
 			
-			$this->db->select("DATE_FORMAT(date, '%d') as date, CONCAT('/', controller) as url, COUNT(*) as total");
-			$this->db->from($this->tablename);
-			$this->db->where("date BETWEEN '{$startDate}' AND '{$endDate}'");
-			$this->db->group_by("controller");
-			$this->db->order_by("controller");
+			$this->DB->select("DATE_FORMAT(date, '%d') as date, CONCAT('/', controller) as url, COUNT(*) as total");
+			$this->DB->from($this->tablename);
+			$this->DB->where("date BETWEEN '{$startDate}' AND '{$endDate}'");
+			$this->DB->group_by("controller");
+			$this->DB->order_by("controller");
 		
-			foreach($this->db->get()->result() as $row){
+			foreach($this->DB->get()->result() as $row){
 				$accessData[] = [
 					'url'		=> $row->url,
 					'category'	=> $row->date,
@@ -41,12 +45,12 @@ class Dashboard_model extends MY_Model{
 		try{
 			$accessData = [];
 			
-			$this->db->select("DATE_FORMAT(date, '%d') as date, CONCAT('/', method) as method, COUNT(*) as total");
-			$this->db->from($this->tablename);
-			$this->db->group_by("method");
-			$this->db->order_by("COUNT(*) DESC");
+			$this->DB->select("DATE_FORMAT(date, '%d') as date, CONCAT('/', method) as method, COUNT(*) as total");
+			$this->DB->from($this->tablename);
+			$this->DB->group_by("method");
+			$this->DB->order_by("COUNT(*) DESC");
 		
-			foreach($this->db->get()->result() as $row){
+			foreach($this->DB->get()->result() as $row){
 				$accessData[] = [
 					'method'	=> $row->method,
 					'category'	=> $row->date,

@@ -13,12 +13,12 @@
 					<div class="thumbnail">
 						<img src="<?=site_url()?>resources/images/themes.png">
 						<div class="caption">
-							<h2 style="font-size:24px !important;"><?=$theme[0]?></h2>
+							<h2 style="font-size:18px !important;"><?=$theme[0]?></h2>
 							
 							<?php if($theme[1] == $this->Parameter->_get('system_theme')){ ?>
-								<button rel="<?=$theme[1]?>" class="btn btn-danger" role="button">Current Theme</button>
+								<button rel="<?=$theme[1]?>" class="btn btn-sm btn-danger" role="button">Current Theme</button>
 							<?php } else { ?>
-								<button rel="<?=$theme[1]?>" class="btn btn-success btnChangeTheme" role="button">Apply This Theme</button>
+								<button rel="<?=$theme[1]?>" class="btn btn-sm btn-success btnChangeTheme" role="button">Apply This Theme</button>
 							<?php } ?>
 						</div>
 					</div>

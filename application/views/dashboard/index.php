@@ -74,7 +74,7 @@ $(function(){
 			"dataLoader": {
 				"url": dataUrl
 			},
-			"color": "#666",
+			"color": "#fff",
 			"startDuration": 1,
 			"graphs": [ {
 				"balloonText": "[[category]]: <b>[[value]]</b>",
@@ -112,7 +112,7 @@ $(function(){
 			"dataLoader": {
 				"url": dataUrl
 			},
-			"color": "#666",
+			"color": "#fff",
 			"startDuration": 0,
 			"graphs": [ {
 				"balloonText": "[[category]]: <b>[[value]]</b>",
@@ -130,45 +130,6 @@ $(function(){
 				"zoomable": false
 			},
 			"categoryField": "method",
-			"categoryAxis": {
-				"gridPosition": "value",
-				"gridAlpha": 0,
-				"tickPosition": "value",
-				"tickLength": 20
-			},
-			"export": {
-				"enabled": true
-			}
-		});
-	});
-	
-	$(".chart_horly").each(function(){
-		var dataUrl	= '<?=site_url()?>dashboard/getHourlyFeed';
-		
-		var chart = AmCharts.makeChart($(this).attr("id"), {
-			"type": "serial",
-			"theme": "light",
-			"dataLoader": {
-				"url": dataUrl
-			},
-			"color": "#FFFFFF",
-			"startDuration": 0,
-			"graphs": [ {
-				"balloonText": "[[category]]: <b>[[value]]</b>",
-				"fillAlphas": 0.8,
-				"lineAlpha": 0.2,
-				"type": "column",
-				"valueField": "value"
-			}],
-			"rotate":true,
-			"depth3D": 15,
-			"angle": 20,
-			"chartCursor": {
-				"categoryBalloonEnabled": false,
-				"cursorAlpha": 0,
-				"zoomable": false
-			},
-			"categoryField": "url",
 			"categoryAxis": {
 				"gridPosition": "value",
 				"gridAlpha": 0,
