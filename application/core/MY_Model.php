@@ -263,6 +263,12 @@ class MY_Model extends CI_Model{
 	public function update($id, $data)
 	{
 		try {
+			foreach($_POST as $k => $v){
+				if(empty($v)){
+					unset($_POST[$k]);
+				}
+			}
+				
 			if($this->specials){
 				foreach($_POST as $k => $v){
 					if($this->router->method == $k){
