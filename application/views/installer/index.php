@@ -1,9 +1,9 @@
 <style type="text/css">
 .media{padding:5px;padding-top:10px;padding-left:10px;border-radius:3px;border:1px solid gray;}
 .media:hover{color:white;background-color:#222;}
-#modalPreview .modal-dialog{width:90% !important;height:100% !important;}
-#modalPreview .modal-body{min-height:90% !important;padding:0px;padding-left:10px;padding-right:10px;}
-#modalPreview .modal-body iframe{height:400px !important;}
+#modalPreview .modal-dialog, .modal-content{width:90% !important;height: 90% !important;}
+#modalPreview .modal-body{height: calc(90% - 1px);overflow-y: hidden;padding:0px;padding-left:10px;padding-right:10px;}
+#modalPreview .modal-body iframe{height: calc(100% - 1px) !important;}
 </style>
 
 <ul class="nav nav-tabs" role="tablist">
