@@ -30,5 +30,20 @@ class Auth extends MY_Controller {
 	{
 		$this->render();
 	}
+	
+	public function my_account()
+	{
+		$this->render();
+	}
+	
+	public function change_password()
+	{
+		$this->render();
+	}
+	
+	public function history()
+	{
+		$this->render();
+	}
 }
 

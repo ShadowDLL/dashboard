@@ -96,7 +96,7 @@
 				<h3 class="modal-title title">GitHub Preview</h3>
 			</div>
 			<div class="modal-body">
-				<iframe src="" width="100%" frameborder="0" allowtransparency="true" style="zoom:90%;"></iframe>  
+				<iframe src="" width="100%" frameborder="0" allowtransparency="true" style="zoom:90%;display:none;"></iframe>  
 			</div>
 			<div class="modal-footer">
 				<button type="button" class="btn btn-sm btn-default" data-dismiss="modal">Close</button>
@@ -128,9 +128,17 @@
 <script type="text/javascript">
 $("#modalPreview").modal('hide');
 
+$('#modalPreview').on('shown.bs.modal', function (e){
+	$("#modalPreview iframe").show();
+});
+
+$('#modalPreview').on('hide.bs.modal', function (e){
+	$("#modalPreview iframe").hide();
+});
+
 $(document).on('click', '.btnPreview', function(e){
 	e.preventDefault();
-	$("#modalPreview iframe").attr("src", $(this).attr('href'));
+	$("#modalPreview iframe").attr("src", $(this).attr('href')).hide();
 });
 
 $(document).on('click', '.btnInstall', function(e){

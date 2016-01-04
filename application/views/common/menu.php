@@ -80,7 +80,7 @@
 								<?php if($this->Permission->hasPermission('permissions', 'index')){ ?>
 									<li>
 										<a href="<?=site_url()?>permissions">
-											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 											<span class="menu-spacer">Modules & Permissions</span>
 										</a>
 									</li>
@@ -89,13 +89,11 @@
 								<?php if($this->Permission->hasPermission('installer', 'index')){ ?>
 									<li>
 										<a href="<?=site_url()?>installer">
-											<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+											<span class="glyphicon glyphicon-cog" aria-hidden="true"></span>
 											<span class="menu-spacer">Module Installer</span>
 										</a>
 									</li>
 								<?php } ?>
-						
-								<li role="separator" class="divider"></li>
 						
 								<?php if($this->Permission->hasPermission('parameters', 'index')){ ?>
 									<li>
@@ -125,11 +123,40 @@
 					<li class="dropdown">
 						<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">My Account <span class="caret"></span></a>
 						<ul class="dropdown-menu">
-							<li><a href="<?=site_url()?>minha_conta">My Account</a></li>
-							<li><a href="<?=site_url()?>mudar_senha">Change Password</a></li>
-							<li><a href="<?=site_url()?>historico">Action History</a></li>
+							
+							<?php if(!empty($this->session->userdata('USER_AVATAR'))): ?>
+								<img src="<?=site_url()?>uploads/<?=$this->session->userdata('USER_AVATAR')?>" />
+							<?php endif; ?>
+							
+							<li>
+								<a href="<?=site_url()?>my_account">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="menu-spacer">My Account <small>(<?=$this->session->userdata('USER_NAME')?>)</small></span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="<?=site_url()?>change_pasword">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="menu-spacer">Change Password</span>
+								</a>
+							</li>
+							
+							<li>
+								<a href="<?=site_url()?>history">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="menu-spacer">Action History</span>
+								</a>
+							</li>
+							
 							<li role="separator" class="divider"></li>
-							<li><a href="<?=site_url()?>logout">Sair</a></li>
+							
+							<li>
+								<a href="<?=site_url()?>logout">
+									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="menu-spacer">Sair</span>
+								</a>
+							</li>
 						</ul>
 					</li>
 				</ul>

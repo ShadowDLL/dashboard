@@ -53,8 +53,11 @@ $route['default_controller'] = 'dashboard';
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;
 
-$route['login']		= 'auth/login';
-$route['logout']	= 'auth/logout';
-$route['denied']	= 'auth/denied';
+$route['login']				= 'auth/login';
+$route['logout']			= 'auth/logout';
+$route['denied']			= 'auth/denied';
+$route['my_account']		= 'auth/my_account';
+$route['change_password']	= 'auth/change_password';
+$route['history']			= 'auth/history';
 
 $route['(:any)/(:num)']	= '$1/index/$2';

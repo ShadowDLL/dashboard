@@ -38,7 +38,8 @@ class Auth_model extends MY_Model {
 				'USER_NAME'		=> $user[0]->name,
 				'USER_SLUG'		=> $user[0]->slug,
 				'USER_EMAIL'	=> $user[0]->email,
-				'USER_GROUP'	=> $user[0]->group_id
+				'USER_GROUP'	=> $user[0]->group_id,
+				'USER_AVATAR'	=> $user[0]->attachment
 			);
 		
 			$this->session->set_userdata($session);

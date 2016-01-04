@@ -10,11 +10,12 @@ class User_model extends MY_Model{
 		$this->setFields();
 		$this->setRelations();
 		$this->labels = [
-			'name'		=> 'Name',
-			'group_id'	=> 'Group',
-			'email'		=> 'Email',
-			'password'	=> 'Password',
-			'is_active'	=> 'Active'
+			'name'			=> 'Name',
+			'group_id'		=> 'Group',
+			'email'			=> 'Email',
+			'password'		=> 'Password',
+			'attachment'	=> 'Avatar',
+			'is_active'		=> 'Active'
 		];
 	}
 }
