@@ -1,4 +1,4 @@
-<?php if(strtolower($this->router->class) !== 'auth'){ ?>
+<?php if(strtolower($this->router->method) !== 'login'){ ?>
 	<nav class="navbar navbar-inverse navbar-static-top" role="navigation">
 		<div class="container-fluid">
 			<div class="navbar-header">
@@ -23,7 +23,7 @@
 											<?php if($this->Permission->hasPermission($item->controller, 'index')){ ?>
 												<li>
 													<a href="<?=site_url()?><?=$item->controller?>">
-														<span class="glyphicon glyphicon-euro" aria-hidden="true"></span>
+														<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
 														<span class="menu-spacer"><?=$item->name?></span>
 													</a>
 												</li>
@@ -37,7 +37,7 @@
 				
 					<?php if($this->session->userdata('USER_GROUP') == '1'): ?>
 						<li class="dropdown">
-							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">System Settings <span class="caret"></span></a>
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Settings <span class="caret"></span></a>
 							<ul class="dropdown-menu">
 								<?php if($this->Permission->hasPermission('users', 'index')){ ?>
 									<li>
@@ -131,20 +131,22 @@
 							<li>
 								<a href="<?=site_url()?>my_account">
 									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-									<span class="menu-spacer">My Account <small>(<?=$this->session->userdata('USER_NAME')?>)</small></span>
+									<span class="menu-spacer">My Account</span><br />
+									<span class="glyphicon glyphicon-menu-right" aria-hidden="true"></span>
+									<span class="menu-spacer"><small>(<?=$this->session->userdata('USER_NAME')?>)</small></span>
 								</a>
 							</li>
 							
 							<li>
 								<a href="<?=site_url()?>change_pasword">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-lock" aria-hidden="true"></span>
 									<span class="menu-spacer">Change Password</span>
 								</a>
 							</li>
 							
 							<li>
 								<a href="<?=site_url()?>history">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
+									<span class="glyphicon glyphicon-menu-hamburger" aria-hidden="true"></span>
 									<span class="menu-spacer">Action History</span>
 								</a>
 							</li>
@@ -153,8 +155,8 @@
 							
 							<li>
 								<a href="<?=site_url()?>logout">
-									<span class="glyphicon glyphicon-user" aria-hidden="true"></span>
-									<span class="menu-spacer">Sair</span>
+									<span class="glyphicon glyphicon-off" aria-hidden="true"></span>
+									<span class="menu-spacer">Logout</span>
 								</a>
 							</li>
 						</ul>

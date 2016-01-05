@@ -5,6 +5,10 @@ class Auth extends MY_Controller {
 	function __construct()
 	{
 		parent::__construct('auth');
+		
+		$this->data['buttons'] = [
+			'my_account' => ['save']
+		];
 	}
 
 	public function index($page=0)
@@ -33,11 +37,25 @@ class Auth extends MY_Controller {
 	
 	public function my_account()
 	{
+		if($_POST){
+			$this->load->model('User_model', 'User');
+			$this->User->update($this->session->userdata('USER_ID'), $_POST);
+		}
+		
+		$this->data['my_account'] = $this->Model->get($this->session->userdata('USER_ID'));
+		
 		$this->render();
 	}
 	
 	public function change_password()
 	{
+		if($_POST){
+			$this->load->model('User_model', 'User');
+			$this->User->update($this->session->userdata('USER_ID'), $_POST);
+		}
+		
+		$this->data['my_account'] = $this->Model->get($this->session->userdata('USER_ID'));
+		
 		$this->render();
 	}
 	

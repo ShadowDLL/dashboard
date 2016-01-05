@@ -37,7 +37,7 @@ td{
 }
 
 .title{
-	color:orange;
+	color:white;
 }
 
 .pagination{
@@ -81,3 +81,8 @@ small{
 	width: 150px;
 	margin:10px;
 }
+
+.btn{
+	margin-right:5px;
+}
+

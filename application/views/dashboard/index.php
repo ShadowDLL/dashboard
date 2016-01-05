@@ -23,7 +23,7 @@ tspan{
 	<div class="row">
 		<div class="col-sm-12">
 			<div class="panel panel-default">
-				<div class="panel-heading">Top Methods</div>
+				<div class="panel-heading">Top Methods All Time</div>
 				<div class="panel-body" style="padding:0px;">
 					<div id="chartdiv1" class="chart_operations" style="width: 100%; height: 400px;" title="getCurrentFeed"></div>
 				</div>
@@ -82,8 +82,8 @@ $(function(){
 				"lineAlpha": 0.2,
 				"type": "column",
 				"valueField": "value",
-				"lineColor": "#90C3D4",
-				"fillColors": "#90C3D4",
+				"lineColor": "#FFFFFF",
+				"fillColors": "#888888",
 			}],
 			"rotate":false,
 			"depth3D": 15,
@@ -119,7 +119,9 @@ $(function(){
 				"fillAlphas": 0.8,
 				"lineAlpha": 0.2,
 				"type": "column",
-				"valueField": "value"
+				"valueField": "value",
+				"lineColor": "#CCCCCC",
+				"fillColors": "#555555",
 			}],
 			"rotate":true,
 			"depth3D": 15,

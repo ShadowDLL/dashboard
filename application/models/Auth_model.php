@@ -15,6 +15,27 @@ class Auth_model extends MY_Model {
 			$this->is_logged();
 			$this->is_active();
 		}
+		
+		$this->labels = [
+			'name'			=> 'Name',
+			'group_id'		=> 'Group',
+			'email'			=> 'Email',
+			'password'		=> 'Password',
+			'attachment'	=> 'Avatar',
+			'is_active'		=> 'Active'
+		];
+		
+		$this->exclude = [
+			'group_id',
+			'is_active',
+			'password',
+			'created_at',
+			'created_by',
+			'updated_at',
+			'updated_by',
+			'deleted_at',
+			'deleted_by'
+		];
 	}
 	
 	public final function login($data = array())

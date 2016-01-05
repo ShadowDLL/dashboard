@@ -13,9 +13,11 @@
 	</div>
 	<div class="panel-body">
 		<form class="form-horizontal" method="POST" enctype="multipart/form-data" action="<?=site_url($this->router->class.'/'.$this->router->method);?>">
-			<?php foreach($this->Model->getFields() as $field){ ?>
-				<?php getHTMLControl($field, $this->Model->getLabel($field['name']), $row, $this->Model->relations);?>
-			<?php } ?>
+			<fieldset>
+				<?php foreach($this->Model->getFields() as $field){ ?>
+					<?php getHTMLControl($field, $this->Model->getLabel($field['name']), $row, $this->Model->relations);?>
+				<?php } ?>
+			</fieldset>
 		</form>
 	</div>
 </div>

@@ -10,7 +10,7 @@
 	</div>
 	<div class="panel-body">
 		<?php if($rows){ ?>
-			<table class="table table-bordered table-hover table-condensed table-responsive">
+			<table class="table table-hover table-condensed">
 				<thead>
 					<tr>
 						<?php foreach($this->Model->fields as $field): ?>

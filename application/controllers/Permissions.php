@@ -7,6 +7,10 @@ class Permissions extends MY_Controller
 		parent::__construct('permission');
 		
 		$this->data['module'] = 'Modules & Permissions';
+		
+		$this->data['buttons'] = [
+			'index' => []
+		];
 	}
 	
 	public function index($page=0)
