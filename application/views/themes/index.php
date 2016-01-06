@@ -11,7 +11,7 @@
 			<?php foreach($this->data['themes'] as $theme): ?>
 				<div class="col-md-2" style="text-align:center;">
 					<div class="thumbnail">
-						<img src="<?=site_url()?>resources/images/themes.png">
+						<img src="<?=site_url()?>resources/images/themes.png" width="80">
 						<div class="caption">
 							<h2 style="font-size:18px !important;"><?=$theme[0]?></h2>
 							

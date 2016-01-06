@@ -1,6 +1,5 @@
 <style type="text/css">
-.media{padding:5px;padding-top:10px;padding-left:10px;border-radius:3px;border:1px solid gray;}
-.media:hover{color:white;background-color:#222;}
+.media-body{color:white;}
 #modalPreview .modal-dialog, .modal-content{width:90% !important;height: 90% !important;}
 #modalPreview .modal-body{height: calc(90% - 1px);overflow-y: hidden;padding:0px;padding-left:10px;padding-right:10px;}
 #modalPreview .modal-body iframe{height: calc(100% - 1px) !important;}
@@ -26,23 +25,25 @@
 					<p>You can install any of the modules below by clicking the "Install" button or you can view more information about it by clicking "Preview".</p>
 				</div>
 				
-				<?php foreach($this->data['available_modules'] as $module): ?>
-					<div class="media">
-						<div class="media-left">
-							<a href="<?=$module->owner->html_url?>" target="_blank">
-								<img src="<?=$module->owner->avatar_url?>" alt="" width="40">
-							</a>
+				<div class="row">
+					<?php foreach($this->data['available_modules'] as $module): ?>
+						<div class="col-md-4">
+							<div class="thumbnail media" style="padding:5px !important;">
+								<div class="media-left">
+									<img src="<?=$module->owner->avatar_url?>" alt="" width="50">
+								</div>
+								<div class="media-body">
+									<h2 class="media-heading"><?=parseFieldName($module->name)?> <small style="font-size:12px !important;">(<?=$module->full_name?>)</small></h2>
+									<p style="font-size:12px !important;"><?=$module->description?></p>
+									<p style="font-size:12px !important;">
+										<a class="btn btn-sm btn-default btnPreview" style="font-size:12px !important;" data-toggle="modal" href="<?=site_url();?>installer/get_module/<?=$module->name?>" data-target="#modalPreview">Preview</a>
+										<a href="<?=$module->name?>" class="btn btn-sm btn-default btnInstall" style="font-size:12px !important;">Install</a>
+									</p>
+								</div>
+							</div>
 						</div>
-						<div class="media-body">
-							<h2 class="media-heading"><?=parseFieldName($module->name)?> <small style="font-size:12px !important;">(<?=$module->full_name?>)</small></h2>
-							<p style="font-size:12px !important;"><?=$module->description?></p>
-							<p style="font-size:12px !important;">
-								<a class="btn btn-sm btn-default btnPreview" style="font-size:12px !important;" data-toggle="modal" href="<?=site_url();?>installer/get_module/<?=$module->name?>" data-target="#modalPreview">Preview</a>
-								<a href="<?=$module->name?>" class="btn btn-sm btn-default btnInstall" style="font-size:12px !important;">Install</a>
-							</p>
-						</div>
-					</div>
-				<?php endforeach; ?>
+					<?php endforeach; ?>
+				</div>
 			</div>
 		</div>
 	</div>

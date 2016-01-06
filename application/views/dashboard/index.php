@@ -74,7 +74,7 @@ $(function(){
 			"dataLoader": {
 				"url": dataUrl
 			},
-			"color": "#fff",
+			"color": "#999",
 			"startDuration": 1,
 			"graphs": [ {
 				"balloonText": "[[category]]: <b>[[value]]</b>",
@@ -82,12 +82,12 @@ $(function(){
 				"lineAlpha": 0.2,
 				"type": "column",
 				"valueField": "value",
-				"lineColor": "#FFFFFF",
-				"fillColors": "#888888",
+				"lineColor": "#fff",
+				"fillColors": "#ccc",
 			}],
 			"rotate":false,
-			"depth3D": 15,
-			"angle": 20,
+			"depth3D": 5,
+			"angle": 10,
 			"chartCursor": {
 				"categoryBalloonEnabled": false,
 				"cursorAlpha": 0,
@@ -112,20 +112,20 @@ $(function(){
 			"dataLoader": {
 				"url": dataUrl
 			},
-			"color": "#fff",
+			"color": "#999",
 			"startDuration": 0,
 			"graphs": [ {
 				"balloonText": "[[category]]: <b>[[value]]</b>",
-				"fillAlphas": 0.8,
+				"fillAlphas": 0.9,
 				"lineAlpha": 0.2,
 				"type": "column",
 				"valueField": "value",
-				"lineColor": "#CCCCCC",
-				"fillColors": "#555555",
+				"lineColor": "#fff",
+				"fillColors": "#f1f1f1",
 			}],
 			"rotate":true,
-			"depth3D": 15,
-			"angle": 20,
+			"depth3D": 5,
+			"angle": 10,
 			"chartCursor": {
 				"categoryBalloonEnabled": false,
 				"cursorAlpha": 0,
